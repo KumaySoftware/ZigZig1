@@ -8,7 +8,7 @@ public class newplayermov : MonoBehaviour
         Vector3 playerMov;
         public float speed = 2;
 
-
+        public FloorSpawner floorSpawner01;
 
 
         void Start()
@@ -39,6 +39,27 @@ public class newplayermov : MonoBehaviour
 
 
         }
+
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "zemin")
+        {
+            floorSpawner01.Spawn_Single();
+            //StartCoroutine(destroyTile(collision.gameObject));
+        }
+    }
+
+    //IEnumerator destroyTile (GameObject DestroyedTile)
+    //{
+
+
+    //    yield return new WaitForSeconds(4f);
+    //    Destroy(DestroyedTile);
+
+
+    //}
+
 
 }
 
