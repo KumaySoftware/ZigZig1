@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class camerafolow : MonoBehaviour
 {
+    //public newplayermov playerMov;
     public Transform playerLocation;
     Vector3 fark;
     void Start()
@@ -11,15 +12,19 @@ public class camerafolow : MonoBehaviour
         fark = transform.position - playerLocation.position;
     }
 
-   
+
     void Update()
     {
-        transform.position = fark + playerLocation.position;  
+
+        if (newplayermov.camFollow == true)
+        {
+            transform.position = fark + playerLocation.position;
+        }
+
     }
 
     private void OnCollisionExit(Collision collision)
     {
-        
-    }
 
+    }
 }

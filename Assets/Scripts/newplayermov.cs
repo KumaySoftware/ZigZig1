@@ -4,47 +4,79 @@ using UnityEngine;
 
 public class newplayermov : MonoBehaviour
 {
-    
-        Vector3 playerMov;
-        public float speed = 2;
 
-        public FloorSpawner floorSpawner01;
+    public static bool camFollow;
+    Vector3 playerMov;
 
 
-        void Start()
+
+
+    [SerializeField] float speed = 2;
+    [SerializeField] bool isFall;
+    public FloorSpawner floorSpawner01;
+    [SerializeField] float scaleOfTime = 0f;
+    [SerializeField] float scaleOfSpeed = 0.1f;
+    [SerializeField] float Maxspeed = 7;
+
+
+    void Start()
+    {
+        camFollow = true;
+        isFall = false;
+        playerMov = Vector3.forward;
+    }
+
+
+    void Update()
+    {
+        if (transform.position.y <= -0.3f)
         {
-            playerMov = Vector3.forward;
+            isFall = true;
+            camFollow = false;
         }
 
-        // Update is called once per frame
-        void Update()
+
+        if (isFall == true)
         {
-            if (Input.GetMouseButtonDown(0))
+
+            //Time.timeScale = scaleOfTime;
+            return;
+
+        }
+
+
+        if (Input.GetMouseButtonDown(0))
+        {
+
+            if (playerMov.x == 0)
             {
-                if (playerMov.x == 0)
-                {
-                    playerMov = Vector3.left;
-                }
-                else
-                {
-                    playerMov = Vector3.forward;
-                }
+                playerMov = Vector3.left;
             }
+            else
+            {
+                playerMov = Vector3.forward;
+            }
+            if (speed <= Maxspeed)
+                speed += scaleOfSpeed * Time.deltaTime;
         }
-        private void FixedUpdate()
-        {
+    }
+    private void FixedUpdate()
+    {
 
-            Vector3 playerMoveSpeed = playerMov * Time.deltaTime * speed;
-            transform.position += playerMoveSpeed;
+        Vector3 playerMoveSpeed = playerMov * Time.deltaTime * speed;
+        transform.position += playerMoveSpeed;
 
 
-        }
+    }
+
 
 
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.tag == "zemin")
         {
+            Score.score1 += 1 ;
+            collision.gameObject.AddComponent<Rigidbody>();
             floorSpawner01.Spawn_Single();
             //StartCoroutine(destroyTile(collision.gameObject));
         }

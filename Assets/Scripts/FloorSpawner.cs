@@ -30,6 +30,8 @@ public class FloorSpawner : MonoBehaviour
             Spawn_Floor(Spawn_Chance());
     }
 
+    //void SpawnTile()
+
     //public void SpawnTile()
     //{
     //    Vector3 direction;
@@ -58,10 +60,11 @@ public class FloorSpawner : MonoBehaviour
     public void Spawn_Single()
     {
         Spawn_Floor(Spawn_Chance());
-        StartCoroutine(destroyTiles());
+        // StartCoroutine(destroyTiles());
     }
 
     private GameObject Spawn_Chance()
+
     {
         float spawn_chance = Random.Range(0, 100);
 
@@ -75,8 +78,8 @@ public class FloorSpawner : MonoBehaviour
             //Original Floor
             return floor3;
         }
-    }
 
+    }
     private void Spawn_Floor(GameObject temp_floor)
     {
         Vector3 direction = Random.Range(0, 2) == 0 ? Vector3.forward : Vector3.left;
@@ -84,15 +87,4 @@ public class FloorSpawner : MonoBehaviour
 
         lastPosition = Instantiate(temp_floor, lastPosition, temp_floor.transform.rotation).transform.position;
     }
-
-    IEnumerator destroyTiles()
-    {
-
-
-        yield return new WaitForSeconds(4f);
-        Destroy(gameObject);
-
-
-    }
-
 }
