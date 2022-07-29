@@ -4,20 +4,35 @@ using UnityEngine;
 
 public class FloorSpawner : MonoBehaviour
 {
-    public GameObject floor;
-  
-    void Update()
+   
+    [SerializeField] GameObject floor;
+    [SerializeField] GameObject floor2;
+    [SerializeField] GameObject floor3;
+    Vector3 lastPosition;
+
+    [SerializeField] List<GameObject> floors;
+
+    [SerializeField, Range(0, 100)] int spawn_amount = 20;
+
+    void Start()
     {
-        for (int i = 0; i < 10; i++)
+        lastPosition = floor.transform.position;
+
+        if (floors.Count <= 0)
         {
-          SpawnTile();  
+            Debug.Log("!!! Floor List is EMPTY !!!");
+            Debug.Break();
         }
-        
+
+        //for (int i = 0; i < spawn_amount; i++)
+        //  SpawnTile();
+
+        for (int i = 0; i < spawn_amount; i++)
+            Spawn_Floor(Spawn_Chance());
     }
 
-<<<<<<< Updated upstream
-    void SpawnTile()
-=======
+    //void SpawnTile()
+
     //public void SpawnTile()
     //{
     //    Vector3 direction;
@@ -50,36 +65,41 @@ public class FloorSpawner : MonoBehaviour
     }
 
     private GameObject Spawn_Chance()
->>>>>>> Stashed changes
+
     {
-        Vector3 direction;
-        if (Random.Range(0,2) ==0)
+        float spawn_chance = Random.Range(0, 100);
+
+        if (spawn_chance <= 10)
         {
-            direction = Vector3.forward;
+            //Floor2
+            return floor2;
         }
         else
         {
-            direction=Vector3.left;
+            //Original Floor
+            return floor3;
         }
 
-<<<<<<< Updated upstream
-       floor = Instantiate(floor,floor.transform.position+direction,floor.transform.rotation);
-   
-    
-     }
-=======
+    }
+    private void Spawn_Floor(GameObject temp_floor)
+    {
+        Vector3 direction = Random.Range(0, 2) == 0 ? Vector3.forward : Vector3.left;
+        lastPosition += direction;
+
         lastPosition = Instantiate(temp_floor, lastPosition, temp_floor.transform.rotation).transform.position;
     }
-
-    //IEnumerator destroyTiles()
-    //{
-
-
-    //    yield return new WaitForSeconds(4f);
-    //    Destroy(gameObject);
-
-
-    //}
->>>>>>> Stashed changes
-
 }
+
+//IEnumerator destroyTiles()
+//{
+
+
+//    yield return new WaitForSeconds(4f);
+//    Destroy(gameObject);
+
+
+//}
+
+
+
+//}

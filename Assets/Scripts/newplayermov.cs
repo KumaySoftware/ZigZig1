@@ -6,18 +6,17 @@ public class newplayermov : MonoBehaviour
 {
         public static bool camFollow;
         Vector3 playerMov;
-<<<<<<< Updated upstream
-        public float speed = 2;
+       
 
 
-=======
+
         [SerializeField] float speed = 2;
         [SerializeField] bool isFall;
         public FloorSpawner floorSpawner01;
         [SerializeField] float scaleOfTime = 0f;
         [SerializeField] float scaleOfSpeed = 0.1f;
         [SerializeField] float Maxspeed = 7;
->>>>>>> Stashed changes
+
 
     void Start()
         {   camFollow = true;
@@ -25,7 +24,7 @@ public class newplayermov : MonoBehaviour
             playerMov = Vector3.forward;
         }
 
-        // Update is called once per frame
+        
         void Update()
         {
             if(transform.position.y <= -0.3f)
@@ -68,8 +67,7 @@ public class newplayermov : MonoBehaviour
 
         }
 
-<<<<<<< Updated upstream
-=======
+
 
     private void OnCollisionExit(Collision collision)
     {
@@ -93,7 +91,7 @@ public class newplayermov : MonoBehaviour
     //}
 
 
->>>>>>> Stashed changes
+
 }
 
 
