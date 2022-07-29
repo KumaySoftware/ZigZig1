@@ -4,23 +4,49 @@ using UnityEngine;
 
 public class newplayermov : MonoBehaviour
 {
-    
+        public static bool camFollow;
         Vector3 playerMov;
+<<<<<<< Updated upstream
         public float speed = 2;
 
 
+=======
+        [SerializeField] float speed = 2;
+        [SerializeField] bool isFall;
+        public FloorSpawner floorSpawner01;
+        [SerializeField] float scaleOfTime = 0f;
+        [SerializeField] float scaleOfSpeed = 0.1f;
+        [SerializeField] float Maxspeed = 7;
+>>>>>>> Stashed changes
 
-
-        void Start()
-        {
+    void Start()
+        {   camFollow = true;
+            isFall = false;
             playerMov = Vector3.forward;
         }
 
         // Update is called once per frame
         void Update()
         {
+            if(transform.position.y <= -0.3f)
+        {
+            isFall = true;
+            camFollow = false;
+        }
+            
+
+            if (isFall == true)
+        {
+            
+            //Time.timeScale = scaleOfTime;
+            return;
+
+        }
+               
+            
             if (Input.GetMouseButtonDown(0))
             {
+                
                 if (playerMov.x == 0)
                 {
                     playerMov = Vector3.left;
@@ -29,6 +55,8 @@ public class newplayermov : MonoBehaviour
                 {
                     playerMov = Vector3.forward;
                 }
+                if(speed<=Maxspeed)               
+                speed += scaleOfSpeed*Time.deltaTime;
             }
         }
         private void FixedUpdate()
@@ -40,6 +68,32 @@ public class newplayermov : MonoBehaviour
 
         }
 
+<<<<<<< Updated upstream
+=======
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "zemin")
+        {
+
+            collision.gameObject.AddComponent<Rigidbody>();
+            floorSpawner01.Spawn_Single();
+            //StartCoroutine(destroyTile(collision.gameObject));
+        }
+    }
+
+    //IEnumerator destroyTile (GameObject DestroyedTile)
+    //{
+
+
+    //    yield return new WaitForSeconds(4f);
+    //    Destroy(DestroyedTile);
+
+
+    //}
+
+
+>>>>>>> Stashed changes
 }
 
 
