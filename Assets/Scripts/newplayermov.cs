@@ -21,6 +21,7 @@ public class newplayermov : MonoBehaviour
 
     void Start()
     {
+        
         camFollow = true;
         isFall = false;
         playerMov = Vector3.forward;
@@ -29,6 +30,7 @@ public class newplayermov : MonoBehaviour
 
     void Update()
     {
+
         if (transform.position.y <= -0.3f)
         {
             isFall = true;

@@ -1,21 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class Crystal : MonoBehaviour
 {
-
-    public int crystal1;
-    private int crystalCount; 
+    public int crystalCount ;
+    public TextMeshProUGUI crystalText;
+    private static int crystal1;
+     void Update()
+    {
+        crystalCount = crystal1;
+        crystalText.text = crystalCount.ToString();
+    }
+    private void Start()
+    {
+        crystal1 = PlayerPrefs.GetInt("Crystal");
+    }
     private void OnTriggerEnter(Collider other)
     {
 
-        crystalCount++;
-        crystal1 = crystalCount;
-        crystalCount = PlayerPrefs.GetInt("Crystal");
-        PlayerPrefs.SetInt("Crystal", crystalCount);
-        //CollectableControl.waterCount += 1;
-        //  CollectableControl.collectedWater += CollectableControl.waterCount;
+
+        Debug.Log("crtstalcount"+ crystalCount);
+        StartCoroutine(plusCrystal());
+       
         this.gameObject.SetActive(false);
+    }
+
+
+    private IEnumerator plusCrystal()
+    {
+         crystal1 += 1 ;
+        PlayerPrefs.SetInt("Crystal", crystal1);
+        yield return null;
     }
 }

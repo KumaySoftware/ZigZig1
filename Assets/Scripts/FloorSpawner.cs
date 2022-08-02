@@ -8,7 +8,7 @@ public class FloorSpawner : MonoBehaviour
     [SerializeField] GameObject floor2;
     [SerializeField] GameObject floor3;
     Vector3 lastPosition;
-
+    [SerializeField] GameObject floor4;
     [SerializeField] List<GameObject> floors;
 
     [SerializeField, Range(0, 100)] int spawn_amount = 20;
@@ -65,6 +65,7 @@ public class FloorSpawner : MonoBehaviour
 
     private GameObject Spawn_Chance()
 
+
     {
         float spawn_chance = Random.Range(0, 100);
 
@@ -73,10 +74,14 @@ public class FloorSpawner : MonoBehaviour
             //Floor2
             return floor2;
         }
-        else
+        else if (spawn_chance <= 90)
         {
             //Original Floor
             return floor3;
+        }
+        else
+        {
+            return floor4;
         }
 
     }
