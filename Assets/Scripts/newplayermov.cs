@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class newplayermov : MonoBehaviour
 {
-
+    public GameObject reStartbutton;
     public static bool camFollow;
     Vector3 playerMov;
 
@@ -35,6 +36,9 @@ public class newplayermov : MonoBehaviour
         {
             isFall = true;
             camFollow = false;
+            //Time.timeScale = 0;
+            reStartbutton.SetActive(true);
+            
         }
 
 

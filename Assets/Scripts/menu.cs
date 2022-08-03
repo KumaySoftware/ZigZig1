@@ -1,19 +1,49 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class menu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public GameObject leaderBoard1;
+    public GameObject Shop;
+    public GameObject bosbutton; //boþ button sonradan iþlev eklencek
+    public GameObject Startbut;
+
+    private void OnValidate()
     {
-        Time.timeScale = 0;
+      //  Time.timeScale = 0;
+    }
+    // Start is called before the first frame update
+    private void Start()
+    {
+       Time.timeScale = 0f;
     }
 
     // Update is called once per frame
-    void Update()
+    public void Startbutton()
     {
-        if (Input.anyKey)
+            UnityEngine.Debug.Log("HOp");
             Time.timeScale = 1;
+            leaderBoard1.SetActive(false);
+            Shop.SetActive(false);
+            bosbutton.SetActive(false);
+            Startbut.SetActive(false);
     }
+   
+
+
+
+
+
+
+
+
+
+
+
+
 }
