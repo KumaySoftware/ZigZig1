@@ -11,11 +11,13 @@ public class Crystal : MonoBehaviour
     private static int crystal1;
      void Update()
     {
+        crystalText.text = crystal1.ToString();
         //crystalCount = crystal1;
         //crystalText.text = crystalCount.ToString();
     }
     private void Awake()
     {
+        crystalText.text = crystal1.ToString();
         crystal1 = PlayerPrefs.GetInt("Crystal");
     }
     private void OnTriggerEnter(Collider other)
@@ -24,7 +26,7 @@ public class Crystal : MonoBehaviour
       
         //Debug.Log("crtstalcount"+ crystalCount);
         StartCoroutine(plusCrystal());
-        crystalText.text = crystal1.ToString();
+        //crystalText.text = crystal1.ToString();
         this.gameObject.SetActive(false);
     }
 
