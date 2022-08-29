@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 152064322}
   - component: {fileID: 152064321}
   - component: {fileID: 152064320}
+  - component: {fileID: 152064324}
   m_Layer: 0
   m_Name: enemyzone
   m_TagString: zemin
@@ -220,6 +221,18 @@ Transform:
   m_Father: {fileID: 548537453}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &152064324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152064319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b30f17945b3b2514989e6019a6921e03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &203832417
 GameObject:
   m_ObjectHideFlags: 0
@@ -1765,6 +1778,50 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.45570922
   m_Center: {x: 0, y: 0.41518354, z: 0}
+--- !u!1 &975959993
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 975959995}
+  - component: {fileID: 975959996}
+  m_Layer: 0
+  m_Name: Banner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &975959995
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975959993}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 313.75183, y: 334.10553, z: -635.1981}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &975959996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975959993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd30ee98fb0126847b2c3c90a7141706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1288235497
 GameObject:
   m_ObjectHideFlags: 0
